@@ -165,7 +165,7 @@ gbr_diabetes
 
 ```
 
-Train the model
+🔔 Train the model
 
 ```bash python
 
@@ -175,32 +175,47 @@ gbr_diabetes.fit(X_train, y_train)
 ```
 
 
+🔔 Predict the model
 
 ```bash python
 
-```
-
-
-
-```bash python
-
-```
-
-
-
-```bash python
-
-```
-
-
-
-```bash python
+# make predictions on the test set
+y_pred = gbr_diabetes.predict(X_test)
 
 ```
 
 
 ```bash python
 
+# measure accuracy
+print('R2:', r2_score(y_test, y_pred))
+
+
+# done manually to break out the example above
+y_test['y_pred'] = y_pred
+test_scores = y_test.copy()
+test_scores
+
 ```
+
+```bash python
+
+r2 = r2_score(test_scores['Class_variable'], test_scores['y_pred'])
+mae = mean_absolute_error(test_scores['Class_variable'], test_scores['y_pred'])
+mean_act = test_scores['Class_variable'].mean()
+mean_pred = test_scores['y_pred'].mean()
+mape = mean_absolute_percentage_error(test_scores['Class_variable'], test_scores['y_pred'])
+print(f'R2: {r2}\nmae: {mae}\nact_mean: {mean_act}\npred_mean: {mean_pred}\nmape: {mape}')
+
+```
+
+```bash python
+import joblib
+joblib.dump(gbr_diabetes, './diabetes.pkl')
+print(gbr_diabetes)
+
+```
+
+
 
 
