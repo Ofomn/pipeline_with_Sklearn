@@ -15,4 +15,16 @@ This dataset can also be said to provide real-world problem with well-defined fe
 
 ## Dateset
 
-This dataset what initially imported from pycaret libraries and then saved as a `csv file`.
+This dataset is initially from pycaret libraries and then saved as a `csv file`. 
+
+```bash python
+
+# import PyCaret classification module and load diabetes dataset
+from pycaret.classification import *
+diabetes_data = get_data('diabetes')
+
+# convert diabetes dataset to CSV
+diabetes_data.to_csv('diabetes.csv', index=False)
+
+```
+
