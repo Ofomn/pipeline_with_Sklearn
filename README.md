@@ -218,7 +218,7 @@ print(gbr_diabetes)
 
 ----
 
-## [Click To View My Notebook](https://nbviewer.org./github/Ofomn/Pipeline_with_pycaret/blob/e5e4231dc03814e6b4fa583c765681f07b603edd/Pipeline_with_pycarat.ipynb)
+## [Click To View My Notebook](https://nbviewer.org./github/Ofomn/pipeline_with_Sklearn/blob/cba97ef0caa65c7a9ba8e5d3f13263604b974bc9/Pipeline-Regression-sklearn.ipynb)
 
 -----
 
