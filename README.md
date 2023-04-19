@@ -28,3 +28,47 @@ diabetes_data.to_csv('diabetes.csv', index=False)
 
 ```
 
+## Creating a machine learning pipeline with scikit learn(sklearn)
+
+The following steps were taken:
+
+🥌 Set up the environment, Load the dataset and Check for nulls
+
+
+```bash python
+
+# load sample dataset
+import pandas as pd
+import seaborn as sns
+
+from ydata_profiling import ProfileReport
+
+from sklearn.model_selection import train_test_split
+from sklearn.datasets import make_regression
+from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.pipeline import make_pipeline, Pipeline
+from sklearn.impute import SimpleImputer
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
+from sklearn.compose import ColumnTransformer
+from sklearn.metrics import r2_score
+from sklearn.metrics import mean_absolute_error
+from sklearn.metrics import mean_absolute_percentage_error
+
+from yellowbrick.regressor import PredictionError
+
+df = pd.read_csv('./diabetes.csv')
+print(df.shape)
+df
+
+
+# Renaming the column Class variable
+df = df.rename(columns={'Class variable': 'Class_variable'})
+df
+
+
+# simple check for nulls
+df.isna().sum()[df.isna().sum() > 0]
+
+```
+
+
