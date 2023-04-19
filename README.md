@@ -217,5 +217,19 @@ print(gbr_diabetes)
 ```
 
 
+# Technologies Used
+
+* [skLearn](https://scikit-learn.org/stable/index.html)
+* [pandas](https://pandas.pydata.org/)
+* [seaborn](https://scikit-learn.org/stable/index.html)
+* [Yellowbrick](https://www.scikit-yb.org/en/latest/)
+
+
+---
+
+ ## License 
+ Licensed under GPL-3.0 license
+
+© Ofomnbuk 2023 🇨🇦😘🇳🇬
 
 
