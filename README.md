@@ -216,6 +216,13 @@ print(gbr_diabetes)
 
 ```
 
+----
+
+## [Click To View My Notebook](https://nbviewer.org./github/Ofomn/Pipeline_with_pycaret/blob/e5e4231dc03814e6b4fa583c765681f07b603edd/Pipeline_with_pycarat.ipynb)
+
+-----
+
+
 
 # Technologies Used
 
