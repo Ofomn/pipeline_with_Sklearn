@@ -12,3 +12,7 @@ The diabetes dataset can be used to predict whether a patient has diabetes or no
 
 - Evaluating the performance of various classification models, such as logistic regression, decision trees, random forests, and more, on the diabetes dataset.
 This dataset can also be said to provide real-world problem with well-defined features and a clear objective.
+
+## Dateset
+
+This dataset what initially imported from pycaret libraries and then saved as a 'csv file'
