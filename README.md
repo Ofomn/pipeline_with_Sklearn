@@ -32,7 +32,7 @@ diabetes_data.to_csv('diabetes.csv', index=False)
 
 The following steps were taken:
 
-🥌 Set up the environment, Load the dataset and Check for nulls
+🔔 Set up the environment, Load the dataset and Check for nulls
 
 
 ```bash python
@@ -68,6 +68,138 @@ df
 
 # simple check for nulls
 df.isna().sum()[df.isna().sum() > 0]
+
+
+profile = ProfileReport(df)
+profile.to_notebook_iframe()
+profile.to_file('./reg_diabetes.html')
+
+```
+
+🔔 Set and save unseen data
+
+
+```bash python
+
+# set aside and save unseen data set
+data_unseen = df.sample(n=100, random_state=42)
+data        = df.drop(data_unseen.index)
+print(f'Data for model: {data.shape},\nData for unseen predictions: {data_unseen.shape}')
+data_unseen.to_csv('./diabetes_unseen.csv', index=False)
+
+```
+
+
+```bash python
+
+# data.columns!='Class_variable'
+X = data.loc[: , data.columns!='Class_variable']
+y = data.loc[: , data.columns=='Class_variable']
+
+
+X
+```
+
+
+🔔 Split the data into training and test
+
+```bash python
+
+# split the data into training and test set
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+```
+
+```bash python
+
+# encoding 
+# get the categorical and numeric column names
+num_cols = X_train.select_dtypes(exclude=['object']).columns.tolist()
+cat_cols = X_train.select_dtypes(include=['object']).columns.tolist()
+print(num_cols, '\n', cat_cols)
+
+```
+
+🔔 Pipelines(numerical and categorical columns)
+
+```bash python
+
+# pipeline for numerical columns
+num_pipe = make_pipeline(
+    SimpleImputer(strategy='median'),
+    StandardScaler()
+)
+num_pipe
+
+
+
+# pipeline for categorical columns
+cat_pipe = make_pipeline(
+    SimpleImputer(strategy='constant', fill_value='N/A'),
+    OneHotEncoder(handle_unknown='ignore', sparse=False)
+)
+cat_pipe
+
+```
+
+🔔 Combining both pipelines
+
+```bash python
+
+# combine both the pipelines
+full_pipe = ColumnTransformer([
+    ('num', num_pipe, num_cols),
+    ('cat', cat_pipe, cat_cols)
+])
+full_pipe
+
+```
+
+🔔 Build the model
+
+```bash python
+
+# build the model
+gbr_diabetes = make_pipeline(full_pipe, GradientBoostingRegressor(random_state=42))
+gbr_diabetes
+
+```
+
+Train the model
+
+```bash python
+
+# train the model
+gbr_diabetes.fit(X_train, y_train)
+
+```
+
+
+
+```bash python
+
+```
+
+
+
+```bash python
+
+```
+
+
+
+```bash python
+
+```
+
+
+
+```bash python
+
+```
+
+
+```bash python
 
 ```
 
